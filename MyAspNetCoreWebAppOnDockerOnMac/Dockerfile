@@ -2,7 +2,7 @@
 
 WORKDIR /code
 
-COPY. .
+COPY . .
 
 RUN dotnet restore
 
@@ -10,8 +10,8 @@ RUN dotnet publish --output /output --configuration Release
 
 FROM microsoft/aspnetcore:2.0.0
 
-COPY --from= build / output / app
+COPY --from=build /output /app
 
 WORKDIR /app
 
-ENTRYPOINT [ "dotnet", "MyAspnetCoreWebAppOnDockerOnMac.dll" ]
+ENTRYPOINT [ "dotnet", "MyAspNetCoreWebAppOnDockerOnMac.dll" ]
